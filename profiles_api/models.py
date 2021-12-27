@@ -18,7 +18,7 @@ class UserProfileManager(BaseUserManager):
         user.set_password(password)
         user.save(using=self._db)
 
-        return users
+        return user
 
     def create_superuser(self, email, name, password):
         """Create and save a new superuser with given details"""
@@ -47,11 +47,11 @@ class UserProfile(AbstractBaseUser,PermissionsMixin):
 
     def get_full_name(self):
         """Retrieve full name of user"""
-        return self.NAME
+        return self.name
 
     def get_short_name(self):
         """Retrieve short name of user"""
-        return self.NAME
+        return self.name
 
     def __str__(self):
         """Return string representation of user"""
